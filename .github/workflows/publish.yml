@@ -29,7 +29,8 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
           cache: 'maven'
-      
+          cache-dependency-path: '**/pom.xml'
+
       - name: 解析版本号
         id: version
         run: |
