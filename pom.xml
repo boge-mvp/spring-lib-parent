@@ -828,12 +828,12 @@
         <repository>
             <id>github</id>
             <name>GitHub Packages</name>
-            <url>https://maven.pkg.github.com/boge-mvp/repo</url>
+            <url>https://maven.pkg.github.com/boge-mvp/spring-lib-parent</url>
         </repository>
         <snapshotRepository>
             <id>github</id>
             <name>GitHub Packages</name>
-            <url>https://maven.pkg.github.com/boge-mvp/repo</url>
+            <url>https://maven.pkg.github.com/boge-mvp/spring-lib-parent</url>
         </snapshotRepository>
     </distributionManagement>
 
