@@ -52,26 +52,3 @@ jobs:
         run: mvn -B clean deploy -DskipTests
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      
-      - name: 验证发布结果
-        run: |
-          echo "检查 Maven 元数据..."
-          mvn dependency:get -Dartifact=com.boge.spring.parent:spring-lib-parent:${{ env.PROJECT_VERSION }}:pom -DremoteRepositories=github::default::https://maven.pkg.github.com/boge-mvp/spring-lib-parent
-      
-      - name: 上传构建产物
-        uses: actions/upload-artifact@v4
-        with:
-          name: maven-artifacts
-          path: |
-            target/*.pom
-          retention-days: 30
-      
-      - name: 创建 GitHub Release
-        uses: softprops/action-gh-release@v2
-        if: startsWith(github.ref, 'refs/tags/')
-        with:
-          files: |
-            target/*.pom
-          generate_release_notes: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
