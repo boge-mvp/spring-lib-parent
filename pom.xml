@@ -448,7 +448,8 @@
                                 </goals>
                                 <configuration>
                                     <sourceDirs>
-                                        <sourceDir>src/main/kotlin</sourceDir>
+                                        <sourceDir>${project.basedir}/src/main/kotlin</sourceDir>
+                                        <sourceDir>${project.basedir}/src/main/java</sourceDir>
                                     </sourceDirs>
                                 </configuration>
                             </execution>
@@ -460,8 +461,8 @@
                                 </goals>
                                 <configuration>
                                     <sourceDirs>
-                                        <source>src/test/kotlin</source>
-                                        <source>target/generated-test-sources/test-annotations</source>
+                                        <source>${project.basedir}/src/test/kotlin</source>
+                                        <source>${project.basedir}/target/generated-test-sources/test-annotations</source>
                                     </sourceDirs>
                                 </configuration>
                             </execution>
@@ -553,6 +554,14 @@
                         <artifactId>maven-compiler-plugin</artifactId>
                         <version>3.11.0</version>
                         <executions>
+                            <execution>
+                                <id>default-compile</id>
+                                <phase>none</phase>
+                            </execution>
+                            <execution>
+                                <id>default-testCompile</id>
+                                <phase>none</phase>
+                            </execution>
                             <execution>
                                 <id>compile</id>
                                 <phase>compile</phase>
@@ -830,11 +839,6 @@
             <name>GitHub Packages</name>
             <url>https://maven.pkg.github.com/boge-mvp/spring-lib-parent</url>
         </repository>
-        <snapshotRepository>
-            <id>github</id>
-            <name>GitHub Packages</name>
-            <url>https://maven.pkg.github.com/boge-mvp/spring-lib-parent</url>
-        </snapshotRepository>
     </distributionManagement>
 
 </project>
